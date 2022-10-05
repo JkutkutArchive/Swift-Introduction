@@ -3,11 +3,11 @@
 //  Actividad_1_Conceptos_Swift
 //
 //  Created by Jkutkut - Jorge Re invitado on 5/10/22.
-//  Corrected by:
+//  Corrected by: --
 
 import Foundation
 
-// TOOLS
+// ************* TOOLS *************
 func askDouble(question: String) -> Double {
     var input: String?
     while (true) {
@@ -67,11 +67,10 @@ func askInRange(question: String, options: [String]) -> String {
 }
 
 
-// CODE
+// ************* CODE *************
+
 let DOUBLE_INFINITY: Double = Double.infinity
 let INT_INFINITY: Int = Int.max
-
-print("Hola! Vamos a ejecutar varios scripts:")
 
 func ej1() {
     print("Dame los datos de un rectángulo. Te daré su perímetro y su área")
@@ -92,7 +91,7 @@ func ej2() {
     let hipotenusa = sqrt(c1 * c1 + c2 * c2)
     print(String(format:
         "\nLa hipotenusa del triángulo rectángulo es %.3f.\n",
-         hipotenusa
+        hipotenusa
     ))
 }
 
@@ -111,14 +110,13 @@ func ej4() {
     print("Conversor grados:")
     let f = askDouble(question: "Temperatura (F): ")
     let c = (f - 32) * 5 / 9
-    
+
     print(String(format: "%.3f grados Farenheit son %.3f grados Celsius", f, c))
 }
 
 func ej5() {
     print("Calculador de medias")
     let n = askIntInRange(question: "Cantidad de números: ", min: 0, max: INT_INFINITY)
-
     var sum: Double = 0
     for i in 1...n {
         sum += askDouble(question: String(format: "%iº número: ", i))
@@ -147,16 +145,15 @@ func ej7() {
     for i in 1...3 {
         parciales += askDoubleInRange(question: String(format: "Nota %iº parcial: ", i), min: 0, max: 10) / 3
     }
-    let final = askDoubleInRange(question: "Nota exámen final: ", min: 0, max: 10)
+    let ex_final = askDoubleInRange(question: "Nota exámen final: ", min: 0, max: 10)
     let trabajo = askDoubleInRange(question: "Nota trabajo final: ", min: 0, max: 10)
-    
     print("La nota final es:")
     print(String(format:
         ".55 * %.2f + .3 * %.2f + .15 * %.2f = %.2f",
          parciales,
-         final,
+         ex_final,
          trabajo,
-         0.55 * parciales + 0.3 * final + 0.15 * trabajo
+         0.55 * parciales + 0.3 * ex_final + 0.15 * trabajo
     ))
 }
 
@@ -175,8 +172,7 @@ func ej8() {
                 nota += CORRECT
             case "i":
                 nota += INCORRECT
-            // case "b":
-            default:
+            default: // case "b":
                 nota += BLANK
         }
     }
@@ -199,13 +195,14 @@ func ej9() {
     ))
 }
 
-// LOOP
+// ************* LOOP *************
 
 let EJERCICIOS = [ej1, ej2, ej3, ej4, ej5, ej6, ej7, ej8, ej9]
 var ej: Int;
+print("Hola! Vamos a ejecutar varios scripts:")
 while true {
     print("Introduce el ejercicio que quieres revisar (0 para salir):")
-    ej = askIntInRange(question: "Ejercicio: ", min: 0, max: EJERCICIOS.count)
+    ej = askIntInRange(question: "$> ", min: 0, max: EJERCICIOS.count)
     if ej == 0 {
         break
     }
